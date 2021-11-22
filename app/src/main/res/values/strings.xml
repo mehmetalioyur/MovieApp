@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FindMovieApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trends">Trends</string>
+    <string name="search">Search</string>
+    <string name="saved">Saved</string>
+    <string name="movie_poster">Movie Poster</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/trendsFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mehmetalioyur.findmovieapp.ui.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="movieDetails"
+            app:argType="com.mehmetalioyur.findmovieapp.moviesmodel.Result" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.mehmetalioyur.findmovieapp.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trendsFragment"
+        android:name="com.mehmetalioyur.findmovieapp.ui.TrendsFragment"
+        android:label="fragment_trends"
+        tools:layout="@layout/fragment_trends" >
+        <action
+            android:id="@+id/action_trendsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.mehmetalioyur.findmovieapp.ui.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>
