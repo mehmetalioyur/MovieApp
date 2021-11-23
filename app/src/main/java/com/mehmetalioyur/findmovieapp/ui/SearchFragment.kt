@@ -7,29 +7,34 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mehmetalioyur.findmovieapp.adapter.MoviesRecyclerAdapter
 import com.mehmetalioyur.findmovieapp.databinding.FragmentSearchBinding
 import com.mehmetalioyur.findmovieapp.util.Status
 import com.mehmetalioyur.findmovieapp.viewmodel.SearchViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
-class SearchFragment@Inject constructor(
-    private val moviesRecyclerAdapter: MoviesRecyclerAdapter
-
-) : Fragment() {
+@AndroidEntryPoint
+class SearchFragment() : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var viewModel : SearchViewModel
+    private val viewModel : SearchViewModel by viewModels()
+
+
+
+    @Inject
+    lateinit var moviesRecyclerAdapter: MoviesRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +53,9 @@ class SearchFragment@Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity())[SearchViewModel::class.java]
-
-
 
         binding.searchRecyclerView.adapter = moviesRecyclerAdapter
-        binding.searchRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.searchRecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
         var job : Job? = null
 

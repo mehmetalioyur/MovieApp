@@ -6,24 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mehmetalioyur.findmovieapp.adapter.MoviesRecyclerAdapter
 import com.mehmetalioyur.findmovieapp.databinding.FragmentTrendsBinding
 import com.mehmetalioyur.findmovieapp.util.Status
 import com.mehmetalioyur.findmovieapp.viewmodel.TrendsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
-class TrendsFragment @Inject constructor(
-    private val moviesRecyclerAdapter: MoviesRecyclerAdapter
-) : Fragment() {
+@AndroidEntryPoint
+class TrendsFragment() : Fragment() {
     private var _binding: FragmentTrendsBinding? = null
     private val binding get() = _binding!!
 
+    @Inject
+    lateinit var moviesRecyclerAdapter: MoviesRecyclerAdapter
 
-    lateinit var viewModel: TrendsViewModel
+
+    private val viewModel: TrendsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +46,9 @@ class TrendsFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity())[TrendsViewModel::class.java]
-
 
         binding.trendsRecyclerView.adapter = moviesRecyclerAdapter
-        binding.trendsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.trendsRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         moviesRecyclerAdapter.setOnItemClickListener {
             val action = TrendsFragmentDirections.actionTrendsFragmentToDetailsFragment(it)
             findNavController().navigate(action)
@@ -61,12 +63,12 @@ class TrendsFragment @Inject constructor(
         viewModel.trendMovieList.observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                     it.data?.let { movieList ->
+                    it.data?.let { movieList ->
                         val movies = movieList.results
-                         showScreen()
-                         hideErrorMessage()
-                         hideProgressBar()
-                         moviesRecyclerAdapter.movies = movies
+                        showScreen()
+                        hideErrorMessage()
+                        hideProgressBar()
+                        moviesRecyclerAdapter.movies = movies
                     }
 
 

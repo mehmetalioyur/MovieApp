@@ -6,23 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mehmetalioyur.findmovieapp.adapter.MoviesRecyclerAdapter
 import com.mehmetalioyur.findmovieapp.databinding.FragmentSavedBinding
 import com.mehmetalioyur.findmovieapp.viewmodel.SavedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
+class SavedFragment() : Fragment() {
 
-class SavedFragment @Inject constructor(
-    private val moviesRecyclerAdapter: MoviesRecyclerAdapter
-) : Fragment() {
+    @Inject
+    lateinit var moviesRecyclerAdapter: MoviesRecyclerAdapter
 
-    lateinit var viewModel: SavedViewModel
+    private val viewModel: SavedViewModel by viewModels()
 
     private var _binding: FragmentSavedBinding? = null
     private val binding get() = _binding!!
@@ -41,7 +45,7 @@ class SavedFragment @Inject constructor(
                 val layoutPosition = viewHolder.layoutPosition
                 val selectedMovie = moviesRecyclerAdapter.movies[layoutPosition]
                 viewModel.deleteMovie(selectedMovie)
-                Toast.makeText(requireContext(),"Movie Deleted",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Movie Deleted", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -61,11 +65,10 @@ class SavedFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity())[SavedViewModel::class.java]
 
 
         binding.savedRecyclerView.adapter = moviesRecyclerAdapter
-        binding.savedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.savedRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         moviesRecyclerAdapter.setOnItemClickListener {
             val action = SavedFragmentDirections.actionSavedFragmentToDetailsFragment(it)
             findNavController().navigate(action)

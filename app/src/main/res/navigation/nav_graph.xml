@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="movieDetails"
-            app:argType="com.mehmetalioyur.findmovieapp.moviesmodel.Result" />
+            app:argType="com.mehmetalioyur.findmovieapp.moviesmodel.Result"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

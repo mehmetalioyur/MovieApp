@@ -1,80 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailsFragment"
-    >
+    tools:context=".ui.DetailsFragment">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageDetail"
-            android:layout_width="300dp"
-            android:layout_height="450dp"
-            android:contentDescription="@string/movie_poster"/>
-
-
-        <TextView
-            android:id="@+id/movieName"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            />
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="8dp"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/releaseDateText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
 
-            />
+                <ImageView
 
-        <TextView
-            android:id="@+id/originalLanguageText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
-
-        <TextView
-            android:id="@+id/movieDescriptionText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-        <TextView
-            android:id="@+id/averageVoteText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            />
+                    android:id="@+id/imageDetail"
+                    android:layout_width="300dp"
+                    android:layout_height="450dp"
+                    android:maxHeight="600dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/movie_poster"
+                    android:src="@drawable/ic_launcher_background" />
 
 
+                <TextView
+                    android:id="@+id/movieName"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elegantTextHeight="true"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:gravity="center"
+                    android:text="@string/test"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="normal" />
 
-    </LinearLayout>
+
+                <TextView
+                    android:elegantTextHeight="true"
+                    android:id="@+id/releaseDateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:gravity="center"
+                    android:text="@string/test"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:elegantTextHeight="true"
+                    android:id="@+id/originalLanguageText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:gravity="center"
+                    android:text="@string/test"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:elegantTextHeight="true"
+                    android:id="@+id/movieDescriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:gravity="center"
+                    android:text="@string/test"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:elegantTextHeight="true"
+                    android:id="@+id/averageVoteText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:gravity="center"
+                    android:text="@string/test"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
+        android:contentDescription="@string/saved"
         app:backgroundTint="@color/design_default_color_secondary"
         app:fabSize="normal"
-        app:layout_anchorGravity="bottom|right|end"
         app:layout_anchor="@id/scrollView"
-        android:contentDescription="@string/saved" />
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
