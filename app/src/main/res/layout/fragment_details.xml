@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:fontFamily="@font/exo_2_medium"
-                    android:gravity="center"
+                    android:layout_marginStart="24dp"
                     android:text="@string/test"
                     android:textSize="20sp"
                     android:textStyle="normal" />
@@ -75,7 +75,22 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:fontFamily="@font/exo_2_medium"
-                    android:gravity="center"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/test"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+
+
+                <TextView
+                    android:elegantTextHeight="true"
+                    android:id="@+id/averageVoteText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/exo_2_medium"
+                    android:layout_marginStart="24dp"
                     android:text="@string/test"
                     android:textSize="20sp"
                     android:textStyle="normal" />
@@ -83,18 +98,6 @@
                 <TextView
                     android:elegantTextHeight="true"
                     android:id="@+id/movieDescriptionText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/exo_2_medium"
-                    android:gravity="center"
-                    android:text="@string/test"
-                    android:textSize="20sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:elegantTextHeight="true"
-                    android:id="@+id/averageVoteText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -115,10 +118,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:contentDescription="@string/saved"
+        android:visibility="gone"
         app:backgroundTint="@color/design_default_color_secondary"
         app:fabSize="normal"
         app:layout_anchor="@id/scrollView"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_save_icon" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

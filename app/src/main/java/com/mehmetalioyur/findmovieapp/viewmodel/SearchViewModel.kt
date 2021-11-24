@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mehmetalioyur.findmovieapp.moviesmodel.MoviesModel
-import com.mehmetalioyur.findmovieapp.moviesmodel.Result
-import com.mehmetalioyur.findmovieapp.repo.MoviesRepository
 import com.mehmetalioyur.findmovieapp.repo.MoviesRepositoryInterface
 import com.mehmetalioyur.findmovieapp.util.Constants.API_KEY
 import com.mehmetalioyur.findmovieapp.util.Resource
@@ -31,7 +29,7 @@ class SearchViewModel @Inject constructor(
 
         _searchedMovieList.value = Resource.loading(data = null)
         viewModelScope.launch {
-            val response = repository.searchMovie(API_KEY, "tr", searchQuery, "true")
+            val response = repository.searchMovie(API_KEY, "en", searchQuery, "true")
             _searchedMovieList.value = response
 
         }

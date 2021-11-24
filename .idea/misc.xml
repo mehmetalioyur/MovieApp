@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mehme/AndroidStudioProjects/FindMovieApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mehme/AndroidStudioProjects/FindMovieApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
         <entry key="..\:/Users/mehme/AndroidStudioProjects/FindMovieApp/app/src/main/res/layout/fragment_saved.xml" value="0.1265625" />
         <entry key="..\:/Users/mehme/AndroidStudioProjects/FindMovieApp/app/src/main/res/layout/movie_row.xml" value="0.25416666666666665" />

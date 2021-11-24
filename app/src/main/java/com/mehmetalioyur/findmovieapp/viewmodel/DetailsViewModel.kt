@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     private val repository: MoviesRepositoryInterface,
-    savedStateHandle: SavedStateHandle
+     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
 
@@ -19,16 +19,30 @@ class DetailsViewModel @Inject constructor(
         get() = _movieDetails
 
 
-    init {
+    private val _savedMovieList = MutableLiveData<List<Result>>()
+    val savedMovieList: LiveData<List<Result>>
+        get() = _savedMovieList
 
+    private val _isSavedBefore = MutableLiveData(false)
+    val isSavedBefore : LiveData<Boolean>
+    get() = _isSavedBefore
+
+
+    init {
+        _savedMovieList.value = repository.getMovies().value
         _movieDetails.value = savedStateHandle["movieDetails"]
+        isMovieExist()
     }
 
     fun insertMovie() = viewModelScope.launch {
-
         _movieDetails.value?.let {
             repository.insertMovie(it)
         }
+    }
+
+    fun isMovieExist() = viewModelScope.launch{
+       _isSavedBefore.value =  repository.isRowIsExists(movieDetails.value!!.id!!)
+        println(_isSavedBefore.value)
     }
 
 

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mehmetalioyur.findmovieapp.moviesmodel.MoviesModel
-import com.mehmetalioyur.findmovieapp.moviesmodel.Result
 import com.mehmetalioyur.findmovieapp.repo.MoviesRepositoryInterface
 import com.mehmetalioyur.findmovieapp.util.Constants.API_KEY
 import com.mehmetalioyur.findmovieapp.util.Resource
@@ -28,27 +27,15 @@ class TrendsViewModel @Inject constructor(
         getMovieFromApi()
     }
 
-    // burası loading erroor veya succsess olmadığı durumlari için  // value kullanabilirim sanki.
- /*   private var _insertMovieMessage = MutableLiveData<Resource<MoviesModel>>()
-    val insertMovieMessage : LiveData<Resource<MoviesModel>>
-        get() = _insertMovieMessage
-
-    // burası da öyle
-
-    fun resetInsertMovieMessage(){
-        _insertMovieMessage = MutableLiveData<Resource<MoviesModel>>()
-    }
-*/
 
 
 
 
-
-    fun getMovieFromApi() {
+    private fun getMovieFromApi() {
 
         _trendMovieList.value = Resource.loading(null)
         viewModelScope.launch {
-            val response = repository.getTrendMovies(API_KEY, "tr", "1", )
+            val response = repository.getTrendMovies(API_KEY, "en", "1" )
             _trendMovieList.value = response
 
         }

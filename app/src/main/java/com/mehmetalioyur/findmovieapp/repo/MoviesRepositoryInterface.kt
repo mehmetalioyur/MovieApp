@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import com.mehmetalioyur.findmovieapp.moviesmodel.MoviesModel
 import com.mehmetalioyur.findmovieapp.moviesmodel.Result
 import com.mehmetalioyur.findmovieapp.util.Resource
-import retrofit2.Response
 
 interface MoviesRepositoryInterface {
 
     suspend fun insertMovie(movie: Result)
 
     suspend fun deleteMovie(movie: Result)
+
+    suspend fun isRowIsExists(id : Int) : Boolean
 
     fun getMovies(): LiveData<List<Result>>
 

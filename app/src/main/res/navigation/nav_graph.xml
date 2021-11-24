@@ -22,7 +22,8 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/trendsFragment"
@@ -31,7 +32,8 @@
         tools:layout="@layout/fragment_trends" >
         <action
             android:id="@+id/action_trendsFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/savedFragment"
@@ -40,6 +42,7 @@
         tools:layout="@layout/fragment_saved" >
         <action
             android:id="@+id/action_savedFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

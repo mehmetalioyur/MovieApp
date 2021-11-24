@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.mehmetalioyur.findmovieapp.R
 import com.mehmetalioyur.findmovieapp.adapter.MoviesRecyclerAdapter
 import com.mehmetalioyur.findmovieapp.databinding.FragmentTrendsBinding
 import com.mehmetalioyur.findmovieapp.util.Status
@@ -19,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class TrendsFragment() : Fragment() {
+class TrendsFragment : Fragment() {
     private var _binding: FragmentTrendsBinding? = null
     private val binding get() = _binding!!
 
@@ -29,10 +28,6 @@ class TrendsFragment() : Fragment() {
 
     private val viewModel: TrendsViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,11 +35,14 @@ class TrendsFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTrendsBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
 
         binding.trendsRecyclerView.adapter = moviesRecyclerAdapter

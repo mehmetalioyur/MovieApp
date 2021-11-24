@@ -4,7 +4,6 @@ import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.mehmetalioyur.findmovieapp.R
-import com.mehmetalioyur.findmovieapp.repo.MoviesRepository
 import com.mehmetalioyur.findmovieapp.service.MoviesAPI
 import com.mehmetalioyur.findmovieapp.util.Constants.BASE_URL
 import dagger.Module

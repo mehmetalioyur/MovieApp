@@ -32,7 +32,7 @@ class MoviesRecyclerAdapter @Inject constructor(
     }
 
 
-    //  bu result değil movies model olabilir.
+
     private val diffUtil = object  : DiffUtil.ItemCallback<Result>(){
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem == newItem //true

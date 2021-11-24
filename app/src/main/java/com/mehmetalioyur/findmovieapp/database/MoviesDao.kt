@@ -8,14 +8,19 @@ import com.mehmetalioyur.findmovieapp.moviesmodel.Result
 @Dao
 interface MoviesDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE) //item ekle
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movie : Result)
 
     @Delete //item sil
     suspend fun deleteMovie(movie: Result)
 
-    @Query("SELECT * FROM movies")   // herşeyi gözlemle
+    @Query("SELECT * FROM movies")
     fun observeMovies(): LiveData<List<Result>>
+
+    @Query("SELECT EXISTS(SELECT*FROM movies WHERE id = :id)")
+    suspend fun isRowIsExist(id : Int) : Boolean
+
+
 
 
 

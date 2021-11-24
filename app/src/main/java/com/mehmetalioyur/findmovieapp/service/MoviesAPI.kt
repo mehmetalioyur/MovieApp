@@ -13,7 +13,7 @@ interface MoviesAPI {
     @GET("movie/popular?")
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String, //isterim ileride
+        @Query("language") language: String,
         @Query("page") pageNumber: String // int-> integer kabul ediyor mu bilmiyorum.
     ): Response<MoviesModel>
 
@@ -21,9 +21,9 @@ interface MoviesAPI {
     @GET("search/movie?")
     suspend fun searchMovies(
         @Query("api_key") key: String = API_KEY,
-        @Query("language") language: String, //isterim ileride
+        @Query("language") language: String,
         @Query("query") searchQuery: String,
-        @Query("include_adult") includeAdult: String //bool--> belki bool kabul etmiyodur.Denerim
+        @Query("include_adult") includeAdult: String //bool--> kabul ediyor mu bilmiyorum
 
     ): Response<MoviesModel>
 

@@ -23,6 +23,11 @@ class MoviesRepository @Inject constructor(
         moviesDao.deleteMovie(movie)
     }
 
+    override suspend fun isRowIsExists(id: Int): Boolean {
+        return moviesDao.isRowIsExist(id)
+    }
+
+
     override fun getMovies(): LiveData<List<Result>> {
         return moviesDao.observeMovies()
     }
