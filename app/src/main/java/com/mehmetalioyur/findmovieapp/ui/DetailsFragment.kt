@@ -6,20 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.addCallback
-import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.RequestManager
-import com.mehmetalioyur.findmovieapp.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mehmetalioyur.findmovieapp.databinding.FragmentDetailsBinding
 import com.mehmetalioyur.findmovieapp.util.Constants
 import com.mehmetalioyur.findmovieapp.viewmodel.DetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
@@ -39,6 +35,8 @@ class DetailsFragment : Fragment() {
     ): View {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
 
+        val navBar: BottomNavigationView = activity!!.findViewById(com.mehmetalioyur.findmovieapp.R.id.bottomNavigationView)
+        navBar.visibility = View.GONE
         return binding.root
     }
 
@@ -80,8 +78,12 @@ class DetailsFragment : Fragment() {
 
 
     override fun onDestroyView() {
+
         super.onDestroyView()
+        val navBar: BottomNavigationView = activity!!.findViewById(com.mehmetalioyur.findmovieapp.R.id.bottomNavigationView)
+        navBar.visibility = View.VISIBLE
         _binding = null
+
     }
 
 }

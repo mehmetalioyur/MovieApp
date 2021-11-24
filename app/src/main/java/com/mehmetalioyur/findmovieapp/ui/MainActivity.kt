@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -27,9 +28,9 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
 
 
-
-        val navHostFragment =supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
-         binding.bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
+        binding.bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
 
     }
 }
