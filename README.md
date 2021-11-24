@@ -16,5 +16,8 @@ Bu projemde [TheMovieDB](https://www.themoviedb.org/) API servisini kullanarak b
 
 # Uygulama Görselleri
 
-<img src="https://user-images.githubusercontent.com/77691403/143236113-d4756469-da7a-4665-b220-dfeb782ab203.jpeg" width="200">,<img src="https://user-images.githubusercontent.com/77691403/143236122-1df795ad-ea1f-445c-8fbd-b7aee976a155.jpeg" width="200">,  <img src="https://user-images.githubusercontent.com/77691403/143236125-615653ba-f3f3-4063-9bba-c0531874b7fc.jpeg" width="200">,<img src="https://user-images.githubusercontent.com/77691403/143236106-65081120-f079-4577-9c8e-0b6b3702fd35.jpeg" width="200">,
+<img src="https://user-images.githubusercontent.com/77691403/143295250-3a9a1b18-e621-469a-ba58-991188c304ee.jpeg" width="200">,<img src="https://user-images.githubusercontent.com/77691403/143295313-92d1f690-d464-4471-b965-f7d38e58198d.jpeg" width="200">,  <img src="https://user-images.githubusercontent.com/77691403/143295371-c977a32a-5dcf-40ea-835b-ea65503b9d96.jpeg" width="200">,<img src="https://user-images.githubusercontent.com/77691403/143295421-9e6410da-2bfa-487d-8bb2-40d394b592ab.jpeg" width="200">,
 
+# Uygulama İndirme Linki
+
+[Download](https://drive.google.com/file/d/1A34Y6WRDkJJ88mCt-tPijRDDAlPfP6rD/view?usp=sharing)
