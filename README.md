@@ -4,7 +4,7 @@ Bu projemde [TheMovieDB](https://www.themoviedb.org/) API servisini kullanarak b
 
 # Uygulamada Kullandığım Kütüphane ve Yapılar
 
--MVVM Mimari yapısı</br>
+-MVVM mimari yapısı</br>
 -Verileri database'e kaydetmek için *Room*</br>
 -Film verileri sorgusu için *Retrofit*</br>
 -Dependency Injection için *Dagger-Hilt*</br>
