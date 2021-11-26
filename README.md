@@ -1,4 +1,4 @@
-# FindMovieApp
+# MovieApp
 
 Bu projemde [TheMovieDB](https://www.themoviedb.org/) API servisini kullanarak bir film uygulaması geliştirdim. Bu uygulama ile kullanıcı; trend filmleri takip edebilir, film araması yapabilir ve dilediği filmi kaydedebilir.
 
